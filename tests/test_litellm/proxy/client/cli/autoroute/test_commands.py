@@ -163,6 +163,7 @@ class TestUpCommand:
         # `lite configure claude --model` or a user pin would 400 on the first message.
         assert captured["settings"]["model"] == "autorouter"
         assert captured["settings"]["env"]["ANTHROPIC_DEFAULT_SONNET_MODEL"] == "autorouter"
+        assert captured["settings"]["statusLine"]["command"].endswith("statusline.py")
         assert captured["settings_mode"] == 0o600
 
         assert terminate_calls == [99999]
